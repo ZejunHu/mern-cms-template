@@ -5,6 +5,12 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const app = express();
 const router = require("./router");
+const mongoose = require("mongoose");
+
+//DB Setup
+mongoose.connect(
+  "mongodb://toucher:dl237887933@ds251287.mlab.com:51287/auth-toucher"
+);
 
 // App Setup
 app.use(morgan("combined")); // morgan is used to log incoming request
