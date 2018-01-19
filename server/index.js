@@ -10,7 +10,7 @@ const cors = require("cors");
 
 //DB Setup
 mongoose.connect(
-  "mongodb://toucher:dl237887933@ds251287.mlab.com:51287/auth-toucher"
+  "mongodb://admin:admin1234@ds137230.mlab.com:37230/mern-cms-template"
 );
 
 // App Setup
