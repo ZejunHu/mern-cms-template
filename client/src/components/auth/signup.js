@@ -17,8 +17,9 @@ const renderField = ({
 );
 
 class Signup extends Component {
-  handleFormSubmit({ email, password, passwordConfirm }) {
-    console.log(email, password, passwordConfirm);
+  handleFormSubmit(formProps) {
+    //console.log(formProps);
+    this.props.signupUser(formProps);
   }
 
   render() {
@@ -28,7 +29,7 @@ class Signup extends Component {
         <Field
           className="form-control"
           name="email"
-          type="email"
+          type=""
           component={renderField}
           label="Email"
         />
@@ -56,6 +57,18 @@ class Signup extends Component {
 
 function validate(formProps) {
   const errors = {};
+
+  if (!formProps.email) {
+    errors.email = "Please enter an email";
+  }
+
+  if (!formProps.password) {
+    errors.password = "Please enter an password";
+  }
+
+  if (!formProps.passwordConfirm) {
+    errors.passwordConfirm = "Please enter an password confirmation";
+  }
 
   if (formProps.password !== formProps.passwordConfirm) {
     errors.password = "Passwords must match";
